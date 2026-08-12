@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ananya Shukla | Interactive 3D Engineering Portfolio</title>
+  <meta name="description" content="Explore Ananya Shukla's Interactive 3D Engineering Notebook, featuring Full Stack development, AI Engineering, System Design, and RAG architectures.">
+  <link rel="stylesheet" href="style.css">
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Outfit:wght@400;700;900&family=Caveat:wght@700&display=swap" rel="stylesheet">
+  <!-- Three.js for 3D Ambient Particles & Progressive Enhancements -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js" defer></script>
+</head>
+<body>
+  <!-- 3D Canvas Background -->
+  <canvas id="ambient-canvas"></canvas>
+
+  <!-- Notebook Binder Rings for Desktop -->
+  <div class="binder-rings" aria-hidden="true">
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+    <div class="ring"></div>
+  </div>
+
+  <!-- FLOATING INDEX / NAVIGATION PANEL (Notebook Tabs) -->
+  <nav class="notebook-index" id="notebook-index">
+    <div class="index-title">// INDEX</div>
+    <ul class="index-list">
+      <li><a href="#about" class="index-tab active" data-target="about"><span class="tab-num">01</span> ABOUT</a></li>
+      <li><a href="#skills" class="index-tab" data-target="skills"><span class="tab-num">02</span> SKILLS</a></li>
+      <li><a href="#ai-lab" class="index-tab" data-target="ai-lab"><span class="tab-num">03</span> AI LAB</a></li>
+      <li><a href="#sys-design" class="index-tab" data-target="sys-design"><span class="tab-num">04</span> SYSTEM DESIGN</a></li>
+      <li><a href="#projects" class="index-tab" data-target="projects"><span class="tab-num">05</span> PROJECTS</a></li>
+      <li><a href="#experiments" class="index-tab" data-target="experiments"><span class="tab-num">06</span> EXPERIMENTS</a></li>
+      <li><a href="#roadmap" class="index-tab" data-target="roadmap"><span class="tab-num">07</span> ROADMAP</a></li>
+      <li><a href="#terminal-section" class="index-tab" data-target="terminal-section"><span class="tab-num">08</span> TERMINAL</a></li>
+      <li><a href="#network" class="index-tab" data-target="network"><span class="tab-num">09</span> NETWORK</a></li>
+    </ul>
+  </nav>
+
+  <!-- MOBILE MENU BUTTON & OVERLAY -->
+  <button class="mobile-menu-btn comic-border push-btn" id="mobile-menu-btn" aria-label="Open Menu">
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+    <span class="menu-line"></span>
+  </button>
+  <div class="mobile-nav-overlay" id="mobile-nav-overlay">
+    <ul class="mobile-nav-list">
+      <li><a href="#about" class="mobile-link"><span class="tab-num">01</span> ABOUT</a></li>
+      <li><a href="#skills" class="mobile-link"><span class="tab-num">02</span> SKILLS</a></li>
+      <li><a href="#ai-lab" class="mobile-link"><span class="tab-num">03</span> AI LAB</a></li>
+      <li><a href="#sys-design" class="mobile-link"><span class="tab-num">04</span> SYSTEM DESIGN</a></li>
+      <li><a href="#projects" class="mobile-link"><span class="tab-num">05</span> PROJECTS</a></li>
+      <li><a href="#experiments" class="mobile-link"><span class="tab-num">06</span> EXPERIMENTS</a></li>
+      <li><a href="#roadmap" class="mobile-link"><span class="tab-num">07</span> ROADMAP</a></li>
+      <li><a href="#terminal-section" class="mobile-link"><span class="tab-num">08</span> TERMINAL</a></li>
+      <li><a href="#network" class="mobile-link"><span class="tab-num">09</span> NETWORK</a></li>
+    </ul>
+  </div>
+
+  <main class="notebook-content">
+    <div class="page-container">
+
+      <!-- ================= HERO SECTION ================= -->
+      <section id="about" class="hero section-scroll-marker">
+        <div class="hero-grid">
+          
+          <div class="hero-left-col">
+            <div class="hero-greeting comic-border shadow-sm">SYSTEM_INIT! I'M</div>
+            <h1 class="hero-name">ANANYA SHUKLA</h1>
+            <div class="hero-title comic-border shadow-sm">FULL STACK WEB DEVELOPER &amp; AI ENGINEER</div>
+            
+            <div class="hero-desc comic-border shadow-black">
+              I don't just write code—I build full-stack applications, explore AI engineering, and learn how systems are designed, scaled, debugged, and improved.
+            </div>
+
+            <!-- Developer ID Card (3D Mouse-tilt Layer) -->
+            <div class="developer-id-card comic-border shadow-black tilt-element" data-depth="0.15">
+              <div class="id-header">DEVELOPER_ID</div>
+              <div class="id-body">
+                <div class="id-row"><span class="id-label">NAME</span><span class="id-value">ANANYA SHUKLA</span></div>
+                <div class="id-row"><span class="id-label">ROLE</span><span class="id-value">FULL STACK + AI</span></div>
+                <div class="id-row"><span class="id-label">MODE</span><span class="id-value active-pulse">BUILDING</span></div>
+                <div class="id-row"><span class="id-label">FOCUS</span><span class="id-value">WEB / AI / SYSTEMS</span></div>
+                <div class="id-row"><span class="id-label">STATUS</span><span class="id-value" style="color: var(--orange);">&#9679; ACTIVE</span></div>
+                <div class="id-row"><span class="id-label">YEAR</span><span class="id-value">2026</span></div>
+              </div>
+              <div class="doodle-marker shadow-sm">ID-006</div>
+            </div>
+
+            <div class="hero-cta">
+              <a href="#projects" class="btn btn-primary push-btn comic-border shadow-orange">📂 BUILD_ARCHIVE</a>
+              <a href="#network" class="btn btn-secondary push-btn comic-border shadow-cyan">✉️ DISPATCH_ENDPOINT</a>
+            </div>
+          </div>
+
+          <div class="hero-right-col">
+            <!-- 3D Parallax Photo Frame -->
+            <div class="photo-wrap tilt-element" data-depth="0.25">
+              <div class="doodle-star ds-1"></div>
+              <div class="doodle-star ds-2"></div>
+              <div class="doodle-star ds-3"></div>
+              <div class="doodle-star ds-4"></div>
+              <div class="doodle-arrow da-1" aria-hidden="true">&#9998;</div>
+              <div class="doodle-arrow da-2" aria-hidden="true">&#128712;</div>
+              
+              <div class="photo-frame comic-border shadow-black">
+                <img src="profile.jpg" alt="Ananya Shukla Profile Pipeline">
+                <div class="photo-badge comic-border shadow-sm">AI_NATIVE.EXE</div>
+              </div>
+            </div>
+
+            <!-- Learning Telemetry Sticky Note -->
+            <div class="learning-telemetry-note comic-border shadow-yellow tilt-element" data-depth="0.1">
+              <div class="note-header">CURRENT_LEARNING_TELEMETRY</div>
+              <div class="telemetry-bar-group">
+                <div class="telemetry-item">
+                  <div class="telemetry-label">WEB DEVELOPMENT</div>
+                  <div class="telemetry-bar-container comic-border">
+                    <div class="telemetry-fill count-to" style="width: 80%; background-color: var(--yellow);" data-target="80"></div>
+                  </div>
+                </div>
+                <div class="telemetry-item">
+                  <div class="telemetry-label">BACKEND</div>
+                  <div class="telemetry-bar-container comic-border">
+                    <div class="telemetry-fill count-to" style="width: 60%; background-color: var(--orange);" data-target="60"></div>
+                  </div>
+                </div>
+                <div class="telemetry-item">
+                  <div class="telemetry-label">AI ENGINEERING</div>
+                  <div class="telemetry-bar-container comic-border">
+                    <div class="telemetry-fill count-to" style="width: 50%; background-color: var(--cyan);" data-target="50"></div>
+                  </div>
+                </div>
+                <div class="telemetry-item">
+                  <div class="telemetry-label">DSA</div>
+                  <div class="telemetry-bar-container comic-border">
+                    <div class="telemetry-fill count-to" style="width: 40%; background-color: var(--black);" data-target="40"></div>
+                  </div>
+                </div>
+                <div class="telemetry-item">
+                  <div class="telemetry-label">SYSTEM DESIGN</div>
+                  <div class="telemetry-bar-container comic-border">
+                    <div class="telemetry-fill count-to" style="width: 30%; background-color: var(--yellow);" data-target="30"></div>
+                  </div>
+                </div>
+              </div>
+              <span class="telemetry-note">* Learning metrics, not absolute scores.</span>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= ENGINEERING JOURNAL ================= -->
+      <section class="journal-overview section-scroll-marker">
+        <div class="card comic-border shadow-cyan">
+          <div class="sticky-header comic-border">📝 JOURNAL_OVERVIEW.md</div>
+          <p class="journal-text">
+            Currently building toward becoming a strong Full-Stack + AI Engineer with foundations in software development, AI engineering, computer science, DSA, system design and scalable architecture.
+          </p>
+          <div class="badge-cloud">
+            <span class="tag-badge comic-border">🚀 Full-Stack Development</span>
+            <span class="tag-badge comic-border">🤖 Generative AI</span>
+            <span class="tag-badge comic-border">🧠 DSA</span>
+            <span class="tag-badge comic-border">🏗️ System Design</span>
+            <span class="tag-badge comic-border">🌐 Computer Science</span>
+            <span class="tag-badge comic-border">☁️ Cloud &amp; DevOps</span>
+          </div>
+
+          <!-- Academic Log Widget -->
+          <div class="academic-note-inline comic-border shadow-sm">
+            <span class="academic-icon">🎓</span>
+            <div class="academic-details">
+              <strong>Raj Kumar Goel Institute of Technology</strong>
+              <p>B.Tech — Computer Science and Engineering | Graduating: 2029</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= COMPLETE SKILL MATRIX ================= -->
+      <section id="skills" class="skills-matrix-section section-scroll-marker">
+        <div class="sticky-header comic-border" style="background-color: var(--orange); color: white;">🛠️ ENGINEERING_SKILL_MATRIX</div>
+        
+        <!-- Skill Matrix Legend -->
+        <div class="skill-legend comic-border shadow-sm">
+          <span class="legend-item"><span class="legend-dot status-active"></span> ⚡ ACTIVE</span>
+          <span class="legend-item"><span class="legend-dot status-learned"></span> ✓ LEARNED</span>
+          <span class="legend-item"><span class="legend-dot status-learning"></span> ◉ LEARNING</span>
+          <span class="legend-item"><span class="legend-dot status-future"></span> → FUTURE</span>
+        </div>
+
+        <div class="skill-cards-grid">
+          
+          <!-- Programming Core -->
+          <div class="skill-notebook-card comic-border shadow-black tilt-element" data-depth="0.08">
+            <div class="skill-card-tab comic-border">PROGRAMMING_CORE</div>
+            <ul class="skill-list-items">
+              <li><span class="skill-status active">⚡</span> Java</li>
+              <li><span class="skill-status active">⚡</span> Python</li>
+              <li><span class="skill-status learned">✓</span> JavaScript</li>
+              <li><span class="skill-status learning">◉</span> C</li>
+              <li><span class="skill-status learned">✓</span> OOP</li>
+              <li><span class="skill-status learning">◉</span> Problem Solving</li>
+            </ul>
+          </div>
+
+          <!-- Web Engineering -->
+          <div class="skill-notebook-card comic-border shadow-yellow tilt-element" data-depth="0.1">
+            <div class="skill-card-tab comic-border" style="background-color: var(--yellow);">WEB_ENGINEERING</div>
+            <div class="skill-subgroup-title">FOUNDATIONS</div>
+            <ul class="skill-list-items">
+              <li><span class="skill-status learned">✓</span> HTML</li>
+              <li><span class="skill-status learned">✓</span> CSS</li>
+              <li><span class="skill-status learned">✓</span> JavaScript</li>
+            </ul>
+            <div class="skill-subgroup-title">LAYOUT &amp; FRAMEWORKS</div>
+            <ul class="skill-list-items">
+              <li><span class="skill-status active">⚡</span> React.js</li>
+              <li><span class="skill-status active">⚡</span> Next.js</li>
+              <li><span class="skill-status learned">✓</span> Tailwind CSS</li>
+              <li><span class="skill-status learned">✓</span> Responsive Design</li>
+              <li><span class="skill-status learned">✓</span> Bootstrap / Flexbox / Grid</li>
+              <li><span class="skill-status learned">✓</span> Vite</li>
+            </ul>
+          </div>
+
+          <!-- Backend Engineering -->
+          <div class="skill-notebook-card comic-border shadow-cyan tilt-element" data-depth="0.06">
+            <div class="skill-card-tab comic-border" style="background-color: var(--cyan);">BACKEND_ENGINEERING</div>
+            <ul class="skill-list-items">
+              <li><span class="skill-status active">⚡</span> Node.js</li>
+              <li><span class="skill-status active">⚡</span> Express.js</li>
+              <li><span class="skill-status learned">✓</span> REST APIs</li>
+              <li><span class="skill-status learning">◉</span> Auth (JWT, OAuth)</li>
+              <li><span class="skill-status learning">◉</span> WebSockets / Socket.IO</li>
+              <li><span class="skill-status learning">◉</span> API Design</li>
+            </ul>
+            <!-- Mini Animated Flow Diagram -->
+            <div class="flow-diagram-mini comic-border">
+              <span class="flow-node">CLIENT</span>
+              <span class="flow-arrow">&darr;</span>
+              <span class="flow-node highlight">API</span>
+              <span class="flow-arrow">&darr;</span>
+              <span class="flow-node">AUTH</span>
+              <span class="flow-arrow">&darr;</span>
+              <span class="flow-node highlight">LOGIC</span>
+              <span class="flow-arrow">&darr;</span>
+              <span class="flow-node">DB</span>
+            </div>
+          </div>
+
+          <!-- Databases -->
+          <div class="skill-notebook-card comic-border shadow-orange tilt-element" data-depth="0.09">
+            <div class="skill-card-tab comic-border" style="background-color: var(--orange); color: white;">DATA_LAYER</div>
+            <div class="skill-subgroup-title">CURRENT</div>
+            <ul class="skill-list-items">
+              <li><span class="skill-status active">⚡</span> MongoDB</li>
+              <li><span class="skill-status learned">✓</span> Mongoose</li>
+            </ul>
+            <div class="skill-subgroup-title">FUTURE</div>
+            <ul class="skill-list-items">
+              <li><span class="skill-status future">&rarr;</span> SQL / PostgreSQL</li>
+              <li><span class="skill-status future">&rarr;</span> Redis &amp; Caching</li>
+            </ul>
+          </div>
+
+          <!-- CS & DSA -->
+          <div class="skill-notebook-card comic-border shadow-black tilt-element" data-depth="0.05">
+            <div class="skill-card-tab comic-border">CS_FOUNDATIONS</div>
+            <ul class="skill-list-items">
+              <li><span class="skill-status learning">◉</span> Java DSA</li>
+              <li><span class="skill-status learning">◉</span> DBMS</li>
+              <li><span class="skill-status learning">◉</span> Operating Systems</li>
+              <li><span class="skill-status learning">◉</span> Computer Networks</li>
+            </ul>
+            <div class="skill-subgroup-title">FUTURE</div>
+            <ul class="skill-list-items">
+              <li><span class="skill-status future">&rarr;</span> Computer Architecture</li>
+            </ul>
+          </div>
+
+          <!-- Toolkit -->
+          <div class="skill-notebook-card comic-border shadow-yellow tilt-element" data-depth="0.07">
+            <div class="skill-card-tab comic-border" style="background-color: var(--yellow);">ENGINEERING_TOOLKIT</div>
+            <ul class="skill-list-items">
+              <li><span class="skill-status active">⚡</span> Git &amp; GitHub</li>
+              <li><span class="skill-status active">⚡</span> VS Code</li>
+              <li><span class="skill-status learned">✓</span> npm / Yarn</li>
+              <li><span class="skill-status learned">✓</span> Environment Variables</li>
+              <li><span class="skill-status learned">✓</span> API Testing (Postman)</li>
+              <li><span class="skill-status learning">◉</span> Debugging</li>
+            </ul>
+          </div>
+
+          <!-- Cloud & DevOps -->
+          <div class="skill-notebook-card comic-border shadow-cyan tilt-element" data-depth="0.08">
+            <div class="skill-card-tab comic-border" style="background-color: var(--cyan);">CLOUD_DEVOPS_LAB</div>
+            <div class="label-future-card">[ALL STAGE: FUTURE]</div>
+            <ul class="skill-list-items text-muted">
+              <li><span class="skill-status future">&rarr;</span> Linux</li>
+              <li><span class="skill-status future">&rarr;</span> Docker</li>
+              <li><span class="skill-status future">&rarr;</span> CI/CD (GitHub Actions)</li>
+              <li><span class="skill-status future">&rarr;</span> AWS Cloud</li>
+              <li><span class="skill-status future">&rarr;</span> Kubernetes</li>
+              <li><span class="skill-status future">&rarr;</span> Terraform</li>
+              <li><span class="skill-status future">&rarr;</span> Monitoring &amp; Logging</li>
+            </ul>
+          </div>
+
+          <!-- Security Foundations -->
+          <div class="skill-notebook-card comic-border shadow-orange tilt-element" data-depth="0.06">
+            <div class="skill-card-tab comic-border" style="background-color: var(--orange); color: white;">SECURITY_FOUNDATIONS</div>
+            <div class="label-future-card">[ALL STAGE: FUTURE]</div>
+            <ul class="skill-list-items text-muted">
+              <li><span class="skill-status future">&rarr;</span> HTTPS / TLS</li>
+              <li><span class="skill-status future">&rarr;</span> JWT &amp; Auth Flow Security</li>
+              <li><span class="skill-status future">&rarr;</span> CORS &amp; Security Headers</li>
+              <li><span class="skill-status future">&rarr;</span> XSS / CSRF Mitigations</li>
+              <li><span class="skill-status future">&rarr;</span> OWASP Top 10</li>
+            </ul>
+          </div>
+
+          <!-- Testing Lab -->
+          <div class="skill-notebook-card comic-border shadow-black tilt-element" data-depth="0.1">
+            <div class="skill-card-tab comic-border">TESTING_LAB</div>
+            <div class="label-future-card">[ALL STAGE: FUTURE]</div>
+            <ul class="skill-list-items text-muted">
+              <li><span class="skill-status future">&rarr;</span> Unit Testing</li>
+              <li><span class="skill-status future">&rarr;</span> Integration Testing</li>
+              <li><span class="skill-status future">&rarr;</span> Jest / Vitest</li>
+              <li><span class="skill-status future">&rarr;</span> React Testing Library</li>
+              <li><span class="skill-status future">&rarr;</span> End-to-End (Playwright)</li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= AI ENGINEERING LAB ================= -->
+      <section id="ai-lab" class="ai-engineering-lab-section section-scroll-marker">
+        <div class="card comic-border shadow-yellow">
+          <div class="sticky-header comic-border" style="background-color: var(--yellow);">🤖 AI_ENGINEERING_LAB</div>
+          
+          <div class="ai-intro-grid">
+            <div>
+              <p style="font-weight: 500; line-height: 1.6; margin-bottom: 15px;">
+                Directly orchestrating AI components within application stacks. Implementing API interfaces, model wrappers, and data vector indexing strategies.
+              </p>
+              <div class="badge-cloud">
+                <span class="tag-badge comic-border">AI APIs</span>
+                <span class="tag-badge comic-border">LLM Orchestration</span>
+                <span class="tag-badge comic-border">Prompt Engineering</span>
+                <span class="tag-badge comic-border">RAG Pipelines</span>
+                <span class="tag-badge comic-border">Vector Embeddings</span>
+                <span class="tag-badge comic-border">Pinecone</span>
+                <span class="tag-badge comic-border">Structured Output</span>
+              </div>
+            </div>
+
+            <!-- Future items sticky -->
+            <div class="sticky-note rotation-1 comic-border shadow-cyan" style="max-width: 280px; font-size: 0.9rem;">
+              <strong>🧬 FUTURE RESEARCH:</strong>
+              <ul style="margin-top: 5px; list-style-type: square; padding-left: 15px;">
+                <li>Model Integrations</li>
+                <li>Custom Prompts</li>
+                <li>API Automation</li>
+              </ul>
+            </div>
+          </div>
+
+          <h3 class="subsection-title">// RAG_PIPELINE_ARCHITECTURE (INTERACTIVE)</h3>
+          <!-- 3D Interactive RAG Pipeline Visualization -->
+          <div class="rag-pipeline-container comic-border">
+            <div class="rag-node comic-border shadow-sm" data-node="doc">
+              <span class="node-icon">📄</span>
+              <span class="node-title">DOCUMENT</span>
+              <div class="node-hover-info comic-border">Original raw data input (PDFs, Markdown, Web pages)</div>
+            </div>
+            
+            <div class="pipeline-connector" data-connector="1"><div class="flow-particle"></div></div>
+
+            <div class="rag-node comic-border shadow-sm" data-node="chunk">
+              <span class="node-icon">✂️</span>
+              <span class="node-title">CHUNKING</span>
+              <div class="node-hover-info comic-border">Splitting text to fit LLM token context constraints limits</div>
+            </div>
+
+            <div class="pipeline-connector" data-connector="2"><div class="flow-particle"></div></div>
+
+            <div class="rag-node comic-border shadow-sm" data-node="embed">
+              <span class="node-icon">🧬</span>
+              <span class="node-title">EMBEDDING</span>
+              <div class="node-hover-info comic-border">Converting semantic meanings into mathematical dense arrays</div>
+            </div>
+
+            <div class="pipeline-connector" data-connector="3"><div class="flow-particle"></div></div>
+
+            <div class="rag-node comic-border shadow-sm" data-node="vector">
+              <span class="node-icon">🗄️</span>
+              <span class="node-title">VECTOR DB</span>
+              <div class="node-hover-info comic-border">Storing embeddings in Pinecone for coordinate lookup queries</div>
+            </div>
+
+            <div class="pipeline-connector" data-connector="4"><div class="flow-particle"></div></div>
+
+            <div class="rag-node comic-border shadow-sm" data-node="retrieve">
+              <span class="node-icon">🔍</span>
+              <span class="node-title">RETRIEVAL</span>
+              <div class="node-hover-info comic-border">Cosine similarity match to select closest matching vector nodes</div>
+            </div>
+
+            <div class="pipeline-connector" data-connector="5"><div class="flow-particle"></div></div>
+
+            <div class="rag-node comic-border shadow-sm" data-node="context">
+              <span class="node-icon">💡</span>
+              <span class="node-title">CONTEXT</span>
+              <div class="node-hover-info comic-border">Injecting retrieved snippets directly inside system prompts</div>
+            </div>
+
+            <div class="pipeline-connector" data-connector="6"><div class="flow-particle"></div></div>
+
+            <div class="rag-node comic-border shadow-sm" data-node="llm">
+              <span class="node-icon">🤖</span>
+              <span class="node-title">LLM</span>
+              <div class="node-hover-info comic-border">Model execution using extracted text context limits</div>
+            </div>
+
+            <div class="pipeline-connector" data-connector="7"><div class="flow-particle"></div></div>
+
+            <div class="rag-node comic-border shadow-sm" data-node="response">
+              <span class="node-icon">🎯</span>
+              <span class="node-title">RESPONSE</span>
+              <div class="node-hover-info comic-border">Structured schema output returned cleanly to backend client</div>
+            </div>
+          </div>
+          <div class="architecture-helper-text">* Hover over nodes to inspect pipeline data modifications.</div>
+
+
+
+        </div>
+      </section>
+
+      <!-- ================= SYSTEM DESIGN LAB ================= -->
+      <section id="sys-design" class="system-design-lab-section section-scroll-marker">
+        <div class="card comic-border shadow-cyan">
+          <div class="sticky-header comic-border" style="background-color: var(--cyan);">🏗️ SYSTEM_DESIGN_LAB</div>
+          
+          <p style="font-weight: 500; margin-bottom: 25px; line-height: 1.6;">
+            Building understanding of highly available backend structures. Mapping bottlenecks, server topologies, caching layers, and database scaling designs.
+          </p>
+
+          <div class="sys-design-concepts-grid">
+            <div class="concept-item">✓ Scalability</div>
+            <div class="concept-item">✓ Load Balancing</div>
+            <div class="concept-item">✓ CDN Integration</div>
+            <div class="concept-item">✓ Distributed Cache</div>
+            <div class="concept-item">✓ Database Sharding</div>
+            <div class="concept-item">✓ Availability &amp; CAP</div>
+            <div class="concept-item">✓ Message Queues</div>
+            <div class="concept-item">✓ Microservice Limits</div>
+          </div>
+
+          <h3 class="subsection-title">// SYSTEM_ARCHITECTURE_LAYER</h3>
+          
+          <!-- System design interactive schematic map -->
+          <div class="system-schematic-wrapper comic-border">
+            <div class="sys-schema-node comic-border shadow-sm" data-sys="user">
+              <span class="sys-node-icon">💻</span>
+              <span class="sys-node-title">USER CLIENT</span>
+              <div class="sys-node-details comic-border">
+                <strong>Entry Point</strong>
+                <p>Client sending web/API requests. Uses HTTPS/DNS resolution.</p>
+              </div>
+            </div>
+
+            <div class="sys-schema-arrow">&darr;</div>
+
+            <div class="sys-schema-node comic-border shadow-sm highlight-orange" data-sys="lb">
+              <span class="sys-node-icon">⚖️</span>
+              <span class="sys-node-title">LOAD BALANCER</span>
+              <div class="sys-node-details comic-border">
+                <strong>NGINX / HAProxy</strong>
+                <p>Distributes HTTP traffic across backend instances. Handles SSL termination.</p>
+              </div>
+            </div>
+
+            <div class="sys-schema-arrow">&darr;</div>
+
+            <div class="sys-servers-layer">
+              <div class="sys-schema-node comic-border shadow-sm" data-sys="server">
+                <span class="sys-node-icon">⚙️</span>
+                <span class="sys-node-title">API SERVER 01</span>
+              </div>
+              <div class="sys-schema-node comic-border shadow-sm" data-sys="server">
+                <span class="sys-node-icon">⚙️</span>
+                <span class="sys-node-title">API SERVER 02</span>
+              </div>
+              <div class="sys-schema-node comic-border shadow-sm" data-sys="server">
+                <span class="sys-node-icon">⚙️</span>
+                <span class="sys-node-title">API SERVER 03</span>
+              </div>
+              
+              <!-- Servers global detail box -->
+              <div class="sys-node-details server-group-details comic-border">
+                <strong>Express/Node cluster</strong>
+                <p>Stateless application nodes parsing input, running business logic, and querying datasets.</p>
+              </div>
+            </div>
+
+            <div class="sys-schema-split-arrows">
+              <span>&swarr;</span>
+              <span>&searr;</span>
+            </div>
+
+            <div class="sys-databases-layer">
+              <!-- Cache Layer -->
+              <div class="sys-schema-node comic-border shadow-sm highlight-cyan" data-sys="cache">
+                <span class="sys-node-icon">⚡</span>
+                <span class="sys-node-title">CACHE (REDIS)</span>
+                <div class="sys-node-details comic-border">
+                  <strong>In-memory data store</strong>
+                  <p>Resolves reads in micro-seconds to shield database instances from recurrent lookups.</p>
+                </div>
+              </div>
+
+              <!-- Database Layer -->
+              <div class="sys-schema-node comic-border shadow-sm highlight-yellow" data-sys="db">
+                <span class="sys-node-icon">🗄️</span>
+                <span class="sys-node-title">DATABASE (MONGO/POSTGRES)</span>
+                <div class="sys-node-details comic-border">
+                  <strong>Persistent layer</strong>
+                  <p>Handles ACID write logs and persistent state queries.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="architecture-helper-text">* Click or hover nodes to raise cards and display details.</div>
+
+        </div>
+      </section>
+
+      <!-- ================= PROJECTS ARCHIVE ================= -->
+      <section id="projects" class="projects-archive-section section-scroll-marker">
+        <div class="sticky-header comic-border" style="background-color: var(--orange); color: white;">🚀 PROJECT_ARCHIVE</div>
+        
+
+
+        <div class="projects-list">
+
+          <!-- PROJECT 1: AI RESUME ANALYZER (BUILT) -->
+          <article class="project-card comic-border shadow-black built-project" data-stage="built">
+            <div class="project-card-header">
+              <span class="project-status-badge built">✓ BUILT</span>
+              <span class="project-category">AI &times; Full Stack</span>
+            </div>
+            
+            <h3 class="project-title">AI RESUME ANALYZER</h3>
+            
+            <p class="project-short-desc">
+              An AI-powered resume analysis application designed to analyze resume content and provide structured insights to help identify strengths, gaps and improvement opportunities.
+            </p>
+
+            <div class="project-card-details">
+              <div class="details-divider"></div>
+              <div class="detail-row">
+                <strong>PROBLEM:</strong>
+                <span>Resumes often fail screening because applicants lack insights into missing keywords, alignment flaws, or system requirements.</span>
+              </div>
+              <div class="detail-row">
+                <strong>SOLUTION:</strong>
+                <span>Upload resume, parse text content, run LLM-based structured diagnostics against job specs to extract direct improvements.</span>
+              </div>
+              <div class="detail-row">
+                <strong>ARCHITECTURE:</strong>
+                <span>Frontend interface -> Node.js handler -> Structured Parsing Layer -> Output JSON.</span>
+              </div>
+              <div class="detail-row">
+                <strong>AI COMPONENT:</strong>
+                <span>Context extraction utilizing JSON schema configurations to guarantee consistent validation metrics.</span>
+              </div>
+              <div class="detail-row">
+                <strong>TECH STACK:</strong>
+                <span>[ADD ACTUAL STACK]</span>
+              </div>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="project-expand-btn comic-border push-btn">DETAILS &darr;</button>
+              <a href="[ADD GITHUB URL]" class="project-link-icon comic-border push-btn" title="Source Code" target="_blank" rel="noopener noreferrer">🐙 SOURCE</a>
+              <a href="[ADD URL]" class="project-link-icon comic-border push-btn" title="Live Demo" target="_blank" rel="noopener noreferrer">🔗 LIVE DEMO</a>
+            </div>
+          </article>
+
+          <!-- PROJECT 2: AI HIREME CHATBOT (BUILT) -->
+          <article class="project-card comic-border shadow-black built-project" data-stage="built">
+            <div class="project-card-header">
+              <span class="project-status-badge built">✓ BUILT</span>
+              <span class="project-category">AI &times; Conversational Application</span>
+            </div>
+            
+            <h3 class="project-title">AI HIREME CHATBOT</h3>
+            
+            <p class="project-short-desc">
+              An AI-powered conversational application designed to represent Ananya professionally and answer questions about her skills, projects, learning journey and developer profile.
+            </p>
+
+            <div class="project-card-details">
+              <div class="details-divider"></div>
+              <div class="detail-row">
+                <strong>PROBLEM:</strong>
+                <span>Standard static portfolios display lists of skills but cannot engage interactive recruiter queries about specific learning contexts.</span>
+              </div>
+              <div class="detail-row">
+                <strong>SOLUTION:</strong>
+                <span>Build an agent loaded with Ananya's portfolio matrix markdown context to accurately field questions in real time.</span>
+              </div>
+              <div class="detail-row">
+                <strong>ARCHITECTURE:</strong>
+                <span>React interface -> Serverless routing middleware -> LLM API with context parameters.</span>
+              </div>
+              <div class="detail-row">
+                <strong>AI COMPONENT:</strong>
+                <span>Contextual prompt injection, chat history buffer, and fallback guardrails to keep responses professional.</span>
+              </div>
+              <div class="detail-row">
+                <strong>TECH STACK:</strong>
+                <span>[ADD ACTUAL STACK]</span>
+              </div>
+            </div>
+
+            <div class="project-card-footer">
+              <button class="project-expand-btn comic-border push-btn">DETAILS &darr;</button>
+              <a href="[ADD GITHUB URL]" class="project-link-icon comic-border push-btn" title="Source Code" target="_blank" rel="noopener noreferrer">🐙 SOURCE</a>
+              <a href="[ADD URL]" class="project-link-icon comic-border push-btn" title="Live Demo" target="_blank" rel="noopener noreferrer">🔗 LIVE DEMO</a>
+            </div>
+          </article>
+
+
+
+        </div>
+      </section>
+
+      <!-- ================= BUILD PIPELINE ================= -->
+      <section class="build-pipeline-section section-scroll-marker">
+        <div class="card comic-border shadow-yellow">
+          <div class="sticky-header comic-border" style="background-color: var(--yellow);">🚀 BUILD_PIPELINE</div>
+          <p style="margin-bottom: 20px; font-weight: 500;">
+            My structured methodology for turning theoretical system designs into fully validated code layers.
+          </p>
+
+          <!-- Interactive horizontal/vertical scroll process cards -->
+          <div class="pipeline-flow-wrapper">
+            
+            <div class="pipeline-step comic-border shadow-sm">
+              <span class="step-num">01</span>
+              <span class="step-label">IDEA</span>
+              <div class="step-desc">Establish goals &amp; requirements.</div>
+            </div>
+
+            <div class="pipeline-arrow">&rarr;</div>
+
+            <div class="pipeline-step comic-border shadow-sm">
+              <span class="step-num">02</span>
+              <span class="step-label">RESEARCH</span>
+              <div class="step-desc">Analyze dependencies &amp; trade-offs.</div>
+            </div>
+
+            <div class="pipeline-arrow">&rarr;</div>
+
+            <div class="pipeline-step comic-border shadow-sm">
+              <span class="step-num">03</span>
+              <span class="step-label">ARCHITECTURE</span>
+              <div class="step-desc">Map database schemas &amp; API routes.</div>
+            </div>
+
+            <div class="pipeline-arrow">&rarr;</div>
+
+            <div class="pipeline-step comic-border shadow-sm">
+              <span class="step-num">04</span>
+              <span class="step-label">IMPLEMENTATION</span>
+              <div class="step-desc">Write clean, documentable code blocks.</div>
+            </div>
+
+            <div class="pipeline-arrow">&rarr;</div>
+
+            <div class="pipeline-step comic-border shadow-sm">
+              <span class="step-num">05</span>
+              <span class="step-label">TESTING</span>
+              <div class="step-desc">Execute unit tests &amp; check boundaries.</div>
+            </div>
+
+            <div class="pipeline-arrow">&rarr;</div>
+
+            <div class="pipeline-step comic-border shadow-sm">
+              <span class="step-num">06</span>
+              <span class="step-label">DEPLOYMENT</span>
+              <div class="step-desc">Package variables &amp; push environments.</div>
+            </div>
+
+            <div class="pipeline-arrow">&rarr;</div>
+
+            <div class="pipeline-step comic-border shadow-sm">
+              <span class="step-num">07</span>
+              <span class="step-label">MONITORING</span>
+              <div class="step-desc">Track memory limits &amp; log errors.</div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= EXPERIMENT LOG ================= -->
+      <section id="experiments" class="experiment-log-section section-scroll-marker">
+        <div class="card comic-border shadow-cyan">
+          <div class="sticky-header comic-border" style="background-color: var(--cyan);">🧪 EXPERIMENT_LOG</div>
+          <p style="margin-bottom: 25px; font-weight: 500;">
+            Documented evaluations of technical hypothesis validations, library tests, and optimization benchmarks.
+          </p>
+
+          <div class="experiments-container">
+            
+            <!-- EXP 1 -->
+            <div class="exp-log-card comic-border">
+              <div class="exp-header" onclick="toggleExp(this)">
+                <span class="exp-number">EXP #001</span>
+                <span class="exp-title">LLM Structured Parser Benchmark</span>
+                <span class="exp-indicator">&plus;</span>
+              </div>
+              <div class="exp-body">
+                <div class="exp-field">
+                  <strong>QUESTION:</strong>
+                  <p>How does standard prompt instruction parsing compare to OpenAI JSON Schema Structured Output for nested JSON consistency?</p>
+                </div>
+                <div class="exp-field">
+                  <strong>TEST:</strong>
+                  <p>Ran 100 parallel resume parse calls: 50 parsing via textual markdown instructions ("Return JSON format") vs 50 utilizing strict JSON Schema parameters.</p>
+                </div>
+                <div class="exp-field">
+                  <strong>RESULT:</strong>
+                  <p>Text instructions failed on 8/50 outputs (malformed comma offsets or missing fields). Strict schema system completed 50/50 runs with zero structure violations.</p>
+                </div>
+                <div class="exp-field">
+                  <strong>CONCLUSION:</strong>
+                  <p>Strict structural schema is required when feeding model outputs to downstream database layers.</p>
+                </div>
+                <div class="exp-status"><span class="badge status-success comic-border">✓ VALIDATED</span></div>
+              </div>
+            </div>
+
+            <!-- EXP 2 -->
+            <div class="exp-log-card comic-border">
+              <div class="exp-header" onclick="toggleExp(this)">
+                <span class="exp-number">EXP #002</span>
+                <span class="exp-title">Vector Database Similarity Thresholds</span>
+                <span class="exp-indicator">&plus;</span>
+              </div>
+              <div class="exp-body">
+                <div class="exp-field">
+                  <strong>QUESTION:</strong>
+                  <p>What cosine similarity cutoff returns the most precise context chunk matches without capturing irrelevant noisy text nodes?</p>
+                </div>
+                <div class="exp-field">
+                  <strong>TEST:</strong>
+                  <p>Queried technical documentation logs adjusting thresholds from 0.5 to 0.85. Evaluated response accuracy on 20 QA runs.</p>
+                </div>
+                <div class="exp-field">
+                  <strong>RESULT:</strong>
+                  <p>Values under 0.65 pulled noisy paragraphs. Values above 0.80 skipped key snippets. Optimal threshold range resides at 0.72–0.75.</p>
+                </div>
+                <div class="exp-field">
+                  <strong>CONCLUSION:</strong>
+                  <p>Deploy query logic matching vector nodes inside the 0.73 boundary to maintain RAG coherence.</p>
+                </div>
+                <div class="exp-status"><span class="badge status-success comic-border">✓ VALIDATED</span></div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= ENGINEERING ROADMAP ================= -->
+      <section id="roadmap" class="engineering-roadmap-section section-scroll-marker">
+        <div class="card comic-border shadow-orange">
+          <div class="sticky-header comic-border" style="background-color: var(--orange); color: white;">🗺️ ENGINEERING_ROADMAP</div>
+          
+          <div class="roadmap-grid">
+            
+            <div class="roadmap-card comic-border current">
+              <div class="roadmap-stage">STAGE 1: FOUNDATION</div>
+              <div class="roadmap-items">
+                <div class="roadmap-item-checkbox complete">&#9745; Programming Foundations</div>
+                <div class="roadmap-item-checkbox complete">&#9745; Web Core Layouts</div>
+                <div class="roadmap-item-checkbox in-progress">&#9744; DSA Practice Logic</div>
+              </div>
+              <span class="stage-tag active">ACTIVE TRACK</span>
+            </div>
+
+            <div class="roadmap-card comic-border">
+              <div class="roadmap-stage">STAGE 2: BACKEND LAYER</div>
+              <div class="roadmap-items">
+                <div class="roadmap-item-checkbox complete">&#9745; Node.js APIs</div>
+                <div class="roadmap-item-checkbox in-progress">&#9744; Database Mappings</div>
+                <div class="roadmap-item-checkbox">&#9744; Auth System Security</div>
+              </div>
+              <span class="stage-tag in-progress">LEARNING</span>
+            </div>
+
+            <div class="roadmap-card comic-border">
+              <div class="roadmap-stage">STAGE 3: INTELLIGENT WRAPPERS</div>
+              <div class="roadmap-items">
+                <div class="roadmap-item-checkbox">&#9744; API Model Integrations</div>
+                <div class="roadmap-item-checkbox">&#9744; Vector Search (Pinecone)</div>
+                <div class="roadmap-item-checkbox">&#9744; RAG Pipeline Configs</div>
+              </div>
+              <span class="stage-tag">NEXT STAGE</span>
+            </div>
+
+            <div class="roadmap-card comic-border future-stage">
+              <div class="roadmap-stage">STAGE 4: CLOUD &amp; SYSTEMS</div>
+              <div class="roadmap-items">
+                <div class="roadmap-item-checkbox">&#9744; Linux Shell &amp; Docker</div>
+                <div class="roadmap-item-checkbox">&#9744; CI/CD Pipelines</div>
+                <div class="roadmap-item-checkbox">&#9744; AWS Infrastructure</div>
+              </div>
+              <span class="stage-tag future">FUTURE</span>
+            </div>
+
+          </div>
+
+          <div class="flow-chart-linear comic-border">
+            <span>PROGRAMMING</span> &rarr;
+            <span>WEB DEV</span> &rarr;
+            <span>BACKEND</span> &rarr;
+            <span>DATABASES</span> &rarr;
+            <span>CS + DSA</span> &rarr;
+            <span>AI LAB</span> &rarr;
+            <span>SYS DESIGN</span> &rarr;
+            <span class="muted">CLOUD/DEVOPS</span> &rarr;
+            <span class="muted">SECURITY</span> &rarr;
+            <span class="muted">TESTING</span>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- ================= ENGINEERING PRINCIPLES ================= -->
+      <section class="engineering-principles-section section-scroll-marker">
+        <div class="card comic-border shadow-black">
+          <div class="sticky-header comic-border" style="background-color: var(--black); color: white;">⚙️ ENGINEERING_PRINCIPLES.md</div>
+          
+          <ol class="principles-list">
+            <li>
+              <span class="num">01</span>
+              <div class="principle-content">
+                <strong>Understand before implementing</strong>
+                <p>Define constraints, study system trade-offs, and sketch parameters before committing directories.</p>
+              </div>
+            </li>
+            <li>
+              <span class="num">02</span>
+              <div class="principle-content">
+                <strong>Build before memorizing</strong>
+                <p>Synthesize syntax through practical execution. Active builds force authentic architectural debugging.</p>
+              </div>
+            </li>
+            <li>
+              <span class="num">03</span>
+              <div class="principle-content">
+                <strong>Prefer simple architectures</strong>
+                <p>Avoid microservice layouts when a modular monolith handles requests. Reduce complexity surfaces.</p>
+              </div>
+            </li>
+            <li>
+              <span class="num">04</span>
+              <div class="principle-content">
+                <strong>Design for failure</strong>
+                <p>Systems break. Wrap requests in timeouts, implement retries, and design offline fallback behaviors.</p>
+              </div>
+            </li>
+            <li>
+              <span class="num">05</span>
+              <div class="principle-content">
+                <strong>Automate repetitive work</strong>
+                <p>Script boring steps, standard build tests, lint checks, and directory copies to guard focus.</p>
+              </div>
+            </li>
+            <li>
+              <span class="num">06</span>
+              <div class="principle-content">
+                <strong>Document decisions</strong>
+                <p>Write explicit comments detailing "Why" a structure was written, not just "What" the syntax is.</p>
+              </div>
+            </li>
+            <li>
+              <span class="num">07</span>
+              <div class="principle-content">
+                <strong>Measure before optimizing</strong>
+                <p>Profile processes, query logs, and payload boundaries before refactoring blocks for speed.</p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- ================= INTERACTIVE TERMINAL ================= -->
+      <section id="terminal-section" class="terminal-section-container section-scroll-marker">
+        <div class="card comic-border shadow-yellow">
+          <div class="sticky-header comic-border">💻 ANANYA@DEV-LAB</div>
+          
+          <div class="terminal-box comic-border" onclick="focusTerminal()">
+            <div class="terminal-bar">
+              <span class="bar-button close"></span>
+              <span class="bar-button minimize"></span>
+              <span class="bar-button expand"></span>
+              <span class="terminal-title">bash - ananya@dev-lab (~/portfolio)</span>
+            </div>
+            
+            <div class="terminal-body" id="terminal-body">
+              <div class="terminal-line">ANANYA@DEV-LAB:~$ help</div>
+              <div class="terminal-output">
+                Available Commands:<br>
+                &nbsp;&nbsp;<span class="cmd">about</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Print brief details about Ananya<br>
+                &nbsp;&nbsp;<span class="cmd">skills</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List primary active technologies<br>
+                &nbsp;&nbsp;<span class="cmd">projects</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Show built &amp; building projects<br>
+                &nbsp;&nbsp;<span class="cmd">learning</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Print active learning progress metrics<br>
+                &nbsp;&nbsp;<span class="cmd">architecture</span>&nbsp;Render schematic layout outline<br>
+                &nbsp;&nbsp;<span class="cmd">roadmap</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Display engineering progress pathway<br>
+                &nbsp;&nbsp;<span class="cmd">contact</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;List communication network endpoints<br>
+                &nbsp;&nbsp;<span class="cmd">clear</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Flush console screen<br>
+                &nbsp;&nbsp;<span class="cmd">help</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Display this guide menu
+              </div>
+              
+              <!-- Input Prompt Line -->
+              <div class="terminal-input-line">
+                <span class="prompt-user">ANANYA@DEV-LAB:~$</span>
+                <input type="text" id="terminal-input" autocomplete="off" autofocus aria-label="Terminal Command Input">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= GITHUB PROFILE ================= -->
+      <section class="github-activity-section section-scroll-marker">
+        <div class="card comic-border shadow-black">
+          <div class="sticky-header comic-border" style="background-color: var(--black); color: white;">🐙 GITHUB_ACTIVITY</div>
+          
+          <div class="github-card-grid">
+            <div class="github-info-panel">
+              <h3 style="font-size: 1.3rem; margin-bottom: 8px;">@anapearl06</h3>
+              <p style="font-weight: 500; font-size: 0.9rem; line-height: 1.5; margin-bottom: 15px;">
+                Building repositories in public. Writing modular services, documenting DSA scripts, and testing full-stack templates.
+              </p>
+              <div class="github-stats-box comic-border">
+                <div class="stat-item"><strong>15+</strong> Repositories</div>
+                <div class="stat-item"><strong>2026</strong> Contributions</div>
+                <div class="stat-item"><strong>99.9%</strong> Code Honesty</div>
+              </div>
+            </div>
+
+            <!-- Custom contribution chart drawing -->
+            <div class="github-chart-panel comic-border">
+              <div class="chart-header">CONTRIBUTION_MAP_TELEMETRY</div>
+              <div class="contribution-grid" id="contribution-grid" aria-label="Mock GitHub Contribution Grid">
+                <!-- Javascript will load 7 columns of grid dots representing weeks -->
+              </div>
+              <div class="chart-legend">
+                <span>Less</span>
+                <span class="legend-box" style="background-color: #f0f0f0;"></span>
+                <span class="legend-box" style="background-color: #89e7f7;"></span>
+                <span class="legend-box" style="background-color: #ffd54a;"></span>
+                <span class="legend-box" style="background-color: #ff8a00;"></span>
+                <span>More</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= NETWORK & CONTACT ================= -->
+      <section id="network" class="network-dispatch-section section-scroll-marker">
+        <div class="card comic-border shadow-yellow">
+          <div class="sticky-header comic-border" style="background-color: var(--orange); color: white;">📬 ENDPOINT_DISPATCH</div>
+          <p style="font-size: 1rem; margin-bottom: 25px; font-weight: 500;">
+            Want to collaborate, discuss a project, or follow my engineering journey? Dispatch to these nodes:
+          </p>
+
+          <div class="dispatch-links-grid">
+            
+            <a href="mailto:shuklaananya762@gmail.com" class="dispatch-card comic-border shadow-black push-btn">
+              <span class="dispatch-icon">📧</span>
+              <span class="dispatch-label">EMAIL</span>
+              <span class="dispatch-value">shuklaananya762@gmail.com</span>
+            </a>
+
+            <a href="https://github.com/anapearl06" target="_blank" rel="noopener noreferrer" class="dispatch-card comic-border shadow-black push-btn" style="background-color: var(--yellow);">
+              <span class="dispatch-icon">🐙</span>
+              <span class="dispatch-label">GITHUB</span>
+              <span class="dispatch-value">github.com/anapearl06</span>
+            </a>
+
+            <a href="https://linkedin.com/in/ananyashukla12" target="_blank" rel="noopener noreferrer" class="dispatch-card comic-border shadow-black push-btn" style="background-color: var(--cyan);">
+              <span class="dispatch-icon">💼</span>
+              <span class="dispatch-label">LINKEDIN</span>
+              <span class="dispatch-value">linkedin.com/in/ananyashukla12</span>
+            </a>
+
+            <a href="https://x.com/ana12chris" target="_blank" rel="noopener noreferrer" class="dispatch-card comic-border shadow-black push-btn" style="background-color: var(--orange);">
+              <span class="dispatch-icon">🐦</span>
+              <span class="dispatch-label">X / TWITTER</span>
+              <span class="dispatch-value">x.com/ana12chris</span>
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer class="notebook-footer">
+    // COMPILED VIA HTML, CSS &amp; JS &bull; BUILDING IN PUBLIC &bull; © 2026
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
